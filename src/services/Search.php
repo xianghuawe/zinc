@@ -47,8 +47,10 @@ class Search extends Service
             }
             $body[$optionKey] = $option;
         }
+        if (empty($body)) {
+            throw new InvalidParameterException();
+        }
 
-        var_dump($body);
         $options = $this->buildRequestOption($body);
         $res = $this->_client->post("api/$name/_search", $options);
         return json_decode($res->getBody(), true);
