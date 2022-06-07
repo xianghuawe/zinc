@@ -4,10 +4,12 @@ namespace Zinc;
 
 use GuzzleHttp\Client;
 use Pimple\Container;
+use Zinc\providers\Document;
 use Zinc\providers\Index;
 
 /**
  * @property  services\Index $index
+ * @property  services\Document $document
  */
 class Application extends Container
 {
@@ -19,6 +21,7 @@ class Application extends Container
 
     protected $providers = [
         Index::class,
+        Document::class,
     ];
 
     /**
