@@ -1,0 +1,17 @@
+{
+  "name": "xianghua_we/zinc",
+  "description": "zinc client",
+  "require": {
+    "ext-json": "*",
+    "pimple/pimple": "^3.0",
+    "elasticsearch/elasticsearch": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Zinc\\": "src"
+    },
+    "files": [
+      "src/help.php"
+    ]
+  }
+}
