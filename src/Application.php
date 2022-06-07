@@ -6,22 +6,24 @@ use GuzzleHttp\Client;
 use Pimple\Container;
 use Zinc\providers\Document;
 use Zinc\providers\Index;
+use Zinc\providers\Search;
 
 /**
  * @property  services\Index $index
  * @property  services\Document $document
+ * @property  services\Search $search
  */
 class Application extends Container
 {
-    protected $_client;
-    protected $_required_config = [
+    protected array $_required_config = [
         'zinc_uri',
         'auth'
     ];
 
-    protected $providers = [
+    protected array $providers = [
         Index::class,
         Document::class,
+        Search::class,
     ];
 
     /**
