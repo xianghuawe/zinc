@@ -54,6 +54,10 @@ class Document extends Service
 
     /**
      * 批量操作
+     * 示例数据 (通过换行符分割 ndjson格式数据 一行操作 一行data)
+     * { "create" : { "_index" : "olympics" } }
+     * {"Year": 1896, "City": "Athens", "Sport": "Aquatics"}
+     *
      * @param $data
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -61,7 +65,8 @@ class Document extends Service
     public function bulk($data)
     {
         $options = $this->buildRequestOption($data);
-        $res = $this->_client->delete("api/_bulk", $options);
+        $options['headers']['Content-Type'] = 'application/x-ndjson';
+        $res = $this->_client->post("api/_bulk", $options);
         return json_decode($res->getBody(), true);
     }
 }
