@@ -76,7 +76,7 @@ class Index extends Service
      */
     protected function update(string $name, $updateField, array $data)
     {
-        $this->checkAttributeIsValid($name);
+        $this->checkAttributeIsValid($updateField);
         $res = $this->_client->put("api/$name/_$updateField", $this->buildRequestOption($data));
         return json_decode($res->getBody(), true);
     }
@@ -102,7 +102,7 @@ class Index extends Service
      */
     public function getAttribute(string $name, string $attributeName)
     {
-        $this->checkAttributeIsValid($name);
+        $this->checkAttributeIsValid($attributeName);
         $res = $this->_client->get("api/$name/_$attributeName", $this->buildRequestOption());
         return json_decode($res->getBody(), true);
     }

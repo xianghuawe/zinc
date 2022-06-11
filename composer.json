@@ -4,7 +4,10 @@
   "require": {
     "ext-json": "*",
     "pimple/pimple": "^3.0",
-    "guzzlehttp/guzzle": ">=7.4.0"
+    "guzzlehttp/guzzle": ">=6.0.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
   },
   "autoload": {
     "psr-4": {
@@ -13,5 +16,10 @@
     "files": [
       "src/help.php"
     ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Zinc\\Tests\\": "tests"
+    }
   }
 }
